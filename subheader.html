@@ -1,48 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
+<html ng-app="testApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
 
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-      <style>
-          div{
-              background: red;border: 1px solid black;
-              height: 100px;
-          }
-      </style>
-  </head>
-  <body ng-app="myApp">
-   <div class="bar bar-header bar-dark" >
-      <h1 class="title">Header</h1>
-   </div>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+</head>
+<body ng-controller="MyController">
+<p>
+    <button ng-click="openPopover($event)">Open Popover</button>
+</p>
 
-   <div class="bar bar-subheader has-subheader">
-       <h2 class="title">Sub Header</h2>
-   </div>
-
-   <div class="scroll-content has-header">
-       a
-       <div>1</div>
-       <div>2</div>
-       <div>3</div>
-       <div>4</div>
-       <div>5</div>
-       <div>6</div>
-       <div>7</div>
-       <div>8</div>
-       <div>9</div>
-       <div>10</div>
-   </div>
-  <div class="bar bar-footer bar-dark">
-     <h1 class="title"> footer</h1>
-  </div>
-
-
-  -------------
-
-  </body>
+<script id="my-popover.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar>
+            <h1 class="title">My Popover Title</h1>
+        </ion-header-bar>
+        <ion-content>
+            Hello!
+        </ion-content>
+    </ion-popover-view>
+</script>
+</body>
 </html>
+<script>
+    angular.module('testApp', ['ionic'])
+        .controller('MyController', function($scope, $ionicPopover) {
+
+            // .fromTemplate() method
+           // var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
+
+//            $scope.popover = $ionicPopover.fromTemplate(template, {
+//                scope: $scope
+//            });
+
+            // .fromTemplateUrl() method
+            $ionicPopover.fromTemplateUrl('my-popover.html', {
+                scope: $scope
+            }).then(function(popover) {
+                $scope.popover = popover;
+            });
+
+
+            $scope.openPopover = function($event) {
+                $scope.popover.show($event);
+            };
+            $scope.closePopover = function() {
+                $scope.popover.hide();
+            };
+            //Cleanup the popover when we're done with it!
+            $scope.$on('$destroy', function() {
+                $scope.popover.remove();
+            });
+            // Execute action on hidden popover
+            $scope.$on('popover.hidden', function() {
+                // Execute action
+            });
+            // Execute action on remove popover
+            $scope.$on('popover.removed', function() {
+                // Execute action
+            });
+        });
+
+</script>
+

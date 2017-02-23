@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+
+
+	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<script src="lib/ionic/js/ionic.bundle.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+
+<ion-list show-delete="shouldShowDelete">
+	<ion-item>
+		<ion-delete-button class="ion-minus-circled"></ion-delete-button>
+		Hello, list item!
+	</ion-item>
+</ion-list>
+<ion-toggle ng-model="shouldShowDelete">
+	Show Delete?
+</ion-toggle>
+</body>
+</html>
+<script>
+  angular.module("myApp", ["ionic"])
+       .controller("myCtrl",
+            function ContentController($scope, $ionicSideMenuDelegate) {
+                $scope.toggleLeft = function() {
+                    $ionicSideMenuDelegate.toggleLeft();
+
+            }
+        });
+
+</script>
+
