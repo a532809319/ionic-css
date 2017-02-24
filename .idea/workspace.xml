@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae81aa56-18e6-4d97-a4a8-2488eb837f56" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/back.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_agree.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_code.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_disagree.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_eye_close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_eye_open.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/denglu_key.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/login_phone.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/login-page.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/button.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subheader.html" afterPath="$PROJECT_DIR$/subheader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tabs.html" afterPath="$PROJECT_DIR$/tabs.html" />
-    </list>
+    <list default="true" id="ae81aa56-18e6-4d97-a4a8-2488eb837f56" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -336,12 +323,12 @@
       <workItem from="1487639199864" duration="7559000" />
       <workItem from="1487658231660" duration="1185000" />
       <workItem from="1487669312740" duration="1684000" />
-      <workItem from="1487743235515" duration="17619000" />
+      <workItem from="1487743235515" duration="18165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39935000" />
+    <option name="totallyTimeSpent" value="40481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="40" width="1253" height="810" extended-state="0" />

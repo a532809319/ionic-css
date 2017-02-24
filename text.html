@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" ng-app="mySuperApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="//cdn.bootcss.com/angular-resource/1.5.3/angular-resource.js"></script>
+</head>
+<body ng-controller="PopupCtrl">
+
+
+<ion-header-bar align-title="left" class="bar-positive">
+    <div class="buttons">
+        <button class="button"> 左侧按钮</button>
+    </div>
+    <h1 class="title">Title!</h1>
+    <div class="buttons">
+        <button class="button">右侧按钮</button>
+    </div>
+</ion-header-bar>
+
+
+
+
+<ion-content padding="true" overflow-scroll="false" has-bouncing="true" >
+    <ion-refresher
+            pulling-text="下拉刷新..."
+            on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+        <ion-item ng-repeat="item in items">{{item}}</ion-item>
+    </ion-list>
+    <ion-infinite-scroll
+            on-infinite="loadMore()"
+           >
+    </ion-infinite-scroll>
+</ion-content>
+
+
+<ion-footer-bar align-title="left" class="bar-assertive">
+
+    <h1 class="title">Title!</h1>
+
+</ion-footer-bar>
+
+
+</body>
+<script>
+    angular.module('mySuperApp', ['ionic','ngResource'])
+        .controller('PopupCtrl', function($scope, $http) {
+        $scope.items = [1,2,4,56,45,77,43435,5546,3,6,332,433,554,665,664,];
+        $scope.doRefresh = function() {
+            $http.get('b.json')
+                .success(function(newItems) {
+                    $scope.items = newItems;
+                   // alert(newItems)
+                })
+                .finally(function() {
+                    // 停止广播ion-refresher
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
+        };
+
+            $scope.loadMore = function() {
+                $http.get('d.json').success(function(data) {
+                   // useItems(items);
+                    $scope.items = data;
+                   // alert(data)
+                    console.log(1)
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                });
+            };
+
+            $scope.$on('$stateChangeSuccess', function() {
+                $scope.loadMore();
+            });
+
+
+
+        });
+</script>
+</html>
